@@ -1,0 +1,39 @@
+body {
+    background-color:burlywood;
+    text-align: center;
+}
+
+h1 {
+    color: blue;
+}
+
+.cell{
+    height: 150px;
+    width: 150px;}
+.cell:hover{
+background-color: black
+}    
+
+table{
+    margin:auto;
+}
+.endgame{
+    display: none; 
+    width: 250px;
+    top: 120px;
+    background-color: rgba(250,133,63, 0.8);
+    position: absolute;
+}
+button:hover{
+    background-color: #777777;
+}
+
+table tr:first-child td {
+    border-top: 0;
+}
+table tr:last-child td {
+    border-top: 0;
+}
+table tr td: :first-child {
+    border-left: 0;
+}
