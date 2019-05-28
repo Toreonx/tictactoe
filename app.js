@@ -34,14 +34,14 @@ function turnClick(square) {
     if (!checkTie()) turn(bestSpot(), aiPlayer);
     
 }
-//
+//eachplayer takes turn//
 function turn(squareId, player){
     origBoard[squareId] = player;
     document.getElementById(squareId).innerText = player;
     let gameWon = checkWin(origBoard, player)
     if (gameWon) gameOver(gameWon)
 }
-// 
+// check all possible win combos //
 function checkWin(board, player) {
     let plays = board.reduce((a, e, i) => 
       (e === player) ? a.concat(i) : a, []);
