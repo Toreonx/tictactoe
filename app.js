@@ -1,6 +1,6 @@
 var origBoard;
-const huplayer = "X";
-const aiplayer = "O";
+const huPlayer = "X";
+const aiPlayer = "O";
 //these are all the possible win combos for the game//
 const winCombos = [
     [0, 1, 2],
@@ -30,8 +30,8 @@ function turnClick(square) {
     if (typeof origBoard[square.target.id] == 'number') {
 //check tie//
     }
-    turn(square.target.id, huplayer)
-    if (!checkTie()) turn(bestSpot(), aiplayer);
+    turn(square.target.id, huPlayer)
+    if (!checkTie()) turn(bestSpot(), aiPlayer);
     
 }
 //
@@ -58,10 +58,11 @@ function checkWin(board, player) {
 function gameOver(gameWon) {
     for (let index of winCombos[gameWon.index]){
         document.getElementById(index).style.backgroundColor
-        gameWon.player == huplayer ?'blue' : 'red';
+        gameWon.player == huPlayer ?'blue' : 'red';
     }
     for (var i = 0; i < cells.length; i++){
-        cells[i].removeEventListner('click', turnClick, false);
+        console.log(cells[i]);
+        cells[i].removeEventListener('click', turnClick, false);
     }
     declareWinner(gameWon.player == huPlayer ? 'You Win!' : "You Lose.");
 }
@@ -74,7 +75,7 @@ function emptySquares() {
     return origBoard.filter(s => typeof s == 'number');
 }
 function bestSpot() {
-    return emptySquare()[0]
+    return emptySquares()[0];
 }
 function checkTie() {
     if (emptySquares().length == 0) {
